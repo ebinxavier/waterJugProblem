@@ -7,6 +7,9 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <script src='build/waterJug.js'></script>
     <link rel="stylesheet" href="bootstrap.min.css"> 
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="container">
@@ -28,6 +31,33 @@
             <input type="number" value="1000" class="form-control" id="cycles" placeholder="Allowed Queue">
     </div>
     <button type="button" class="btn btn-primary" onclick="submit()">Calculate</button>
+     <!-- Button trigger modal -->
+     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+            Hint
+          </button>
+          
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Puzzle | Water Jug Problem</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                        We have two water jugs A and B, one measures X Gallons while the other measure Y Gallons. But there is no measuring label mentioned on either of these two jugs i.e. we cannot know the exact amount filled in the jug. Now, assuming there is an infinite amount of water supply, can we measure any arbitrary measurement Z using these unmarked jugs.
+                        <br/>
+                        <br/>
+                        Hint: We can empty the jugs, and transfer water from one jug to other.
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
     <div id="progress"  style="margin-top: 15px;visibility: hidden;">
 
         <div class="progress" >

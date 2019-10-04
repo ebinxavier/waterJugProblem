@@ -128,7 +128,7 @@ return new Promise((resolve, reject)=>{
     if(result){
         resolve(result);
     } else{
-        alert("Taking Too much of computation cycles!");
+        alert("Taking Too much of Queue memory! Consider changing allowed queue size");
         reject(false);
     }
 })
@@ -152,7 +152,7 @@ const submit = ()=>{
         });
 
         document.getElementById('result').style.display="block";
-        document.getElementById('resultJug').innerHTML=value.jug;
+        document.getElementById('resultJug').innerHTML="Got result in "+value.jug+' after '+ value.trace.length+' steps';
         document.getElementById('trace').innerHTML=`<table class="table">
         <thead>
           <tr>

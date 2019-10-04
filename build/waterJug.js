@@ -195,7 +195,7 @@ function calculate() {
     if (result) {
       resolve(result);
     } else {
-      alert("Taking Too much of computation cycles!");
+      alert("Taking Too much of Queue memory! Consider changing allowed queue size");
       reject(false);
     }
   });
@@ -213,7 +213,7 @@ var submit = function submit() {
           return "<tr>\n            <th scope=\"row\">".concat(i + 1, "</th>\n            <td>").concat(items[0], "</td>\n            <td ").concat(value.jug == 'A' && i == value.trace.length - 1 ? 'class="red"' : '', ">").concat(items[1], "</td>\n            <td ").concat(value.jug == 'B' && i == value.trace.length - 1 ? 'class="red"' : '', ">").concat(items[2], "</td>\n          </tr>");
         });
         document.getElementById('result').style.display = "block";
-        document.getElementById('resultJug').innerHTML = value.jug;
+        document.getElementById('resultJug').innerHTML = "Got result in " + value.jug + ' after ' + value.trace.length + ' steps';
         document.getElementById('trace').innerHTML = "<table class=\"table\">\n        <thead>\n          <tr>\n            <th scope=\"col\">Step</th>\n            <th scope=\"col\">Action</th>\n            <th scope=\"col\">Jug A (".concat(document.getElementById('jugA').value, ")</th>\n            <th scope=\"col\">Jug B (").concat(document.getElementById('jugB').value, ")</th>\n          </tr>\n        </thead>\n        <tbody>\n       ").concat(rows.join(''), "\n        </tbody>\n      </table>");
       }
 

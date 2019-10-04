@@ -5,11 +5,11 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Water Jug</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <script src='build/waterJug.js'></script>
     <link rel="stylesheet" href="bootstrap.min.css"> 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src='build/waterJug.js'></script>
 </head>
 <body>
 <div class="container">
@@ -65,19 +65,31 @@
             </div>
         <span>Can take several minutes...!</span>
     </div>
-    <div class="card text-white bg-primary mb-3" id="result" style="margin-top: 15px; display:none">
-            <div class="card-header" id="resultJug"></div>
-            <div class="card-body">
-              <div class="card-text" id="trace">
 
-              </div>
-            </div>
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div id="resultModel" class="modal-dialog modal-lg">
+        <div class="modal-content">
+                <div class="card mb-3" id="result" style="margin: 15px;">
+                        <div class="card-header" id="resultJug"></div>
+                        <div class="card-body">
+                          <div class="card-text" id="trace">
+            
+                          </div>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+        </div>
     </div>
+    </div>
+
+
 </div>   
 <style>
 .red{
-    color: white;
-    font-size: 25px;
+    color: red;
+    font-weight: bold;
 }
 </style> 
 </body>

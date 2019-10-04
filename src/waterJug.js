@@ -171,6 +171,7 @@ const submit = ()=>{
     const currentTime = new Date();
     const diff = currentTime.getTime() - oldTime.getTime();
     console.log("Time: ",diff,"value:", value)
+    $('.bd-example-modal-lg').modal('show');
     })
     .catch(()=>{
     document.getElementById('progress').style.visibility="hidden";

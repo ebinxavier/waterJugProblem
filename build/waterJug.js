@@ -221,6 +221,8 @@ var submit = function submit() {
       var currentTime = new Date();
       var diff = currentTime.getTime() - oldTime.getTime();
       console.log("Time: ", diff, "value:", value);
+      $('.bd-example-modal-lg').modal();
+      $('.bd-example-modal-lg').modal('show');
     })["catch"](function () {
       document.getElementById('progress').style.visibility = "hidden";
     });

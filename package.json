@@ -4,7 +4,8 @@
   "description": "",
   "main": "waterJug.js",
   "scripts": {
-    "build": "babel src -d build"
+    "build": "babel src -d build",
+    "push":"git push git@github.com:ebinxavier/waterJugProblem.git master"
   },
   "keywords": [],
   "author": "",

@@ -183,7 +183,7 @@ var submit = function submit() {
       if (value) {
         var rows = value.trace.map(function (e, i) {
           var items = e.split(';');
-          return "<tr>\n            <th scope=\"row\">".concat(i + 1, "</th>\n            <td>").concat(items[0], "</td>\n            <td>").concat(items[1], "</td>\n            <td>").concat(items[2], "</td>\n          </tr>");
+          return "<tr>\n            <th scope=\"row\">".concat(i + 1, "</th>\n            <td>").concat(items[0], "</td>\n            <td ").concat(value.jug == 'A' && i == value.trace.length - 1 ? 'class="red"' : '', ">").concat(items[1], "</td>\n            <td ").concat(value.jug == 'B' && i == value.trace.length - 1 ? 'class="red"' : '', ">").concat(items[2], "</td>\n          </tr>");
         });
         document.getElementById('result').style.display = "block";
         document.getElementById('resultJug').innerHTML = value.jug;

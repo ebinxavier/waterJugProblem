@@ -129,8 +129,8 @@ const submit = ()=>{
             return `<tr>
             <th scope="row">${i+1}</th>
             <td>${items[0]}</td>
-            <td>${items[1]}</td>
-            <td>${items[2]}</td>
+            <td ${value.jug=='A' && i== value.trace.length-1 ? 'class="red"':''}>${items[1]}</td>
+            <td ${value.jug=='B' && i== value.trace.length-1 ? 'class="red"':''}>${items[2]}</td>
           </tr>`
         });
 

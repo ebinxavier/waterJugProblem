@@ -6,6 +6,17 @@ return new Promise((resolve, reject)=>{
     A = Number(document.getElementById('jugA').value);
     B = Number(document.getElementById('jugB').value);
     O = Number(document.getElementById('output').value);
+    const pastStates =[];
+    const checkPastState = (a,b)=>{
+        const obj =JSON.stringify({a,b});
+        const status = pastStates.some(e=>e==obj);
+      return status;
+    }
+
+    const setPastState = (a,b)=>{
+        pastStates.push(JSON.stringify({a,b}))
+    }
+
     const cycles = Number(document.getElementById('cycles').value);
       console.log(A,B,O,cycles)
     const Q=[ 
@@ -98,6 +109,11 @@ return new Promise((resolve, reject)=>{
       }
     
       if(newState){
+          if(checkPastState(newState.a,newState.b)){
+            continue;
+        } else{
+            setPastState(newState.a,newState.b);
+        }
         const trace = [...newState.trace];
       Q.push({...newState, trace, dir:0});
       Q.push({...newState, trace, dir:1});
@@ -119,6 +135,7 @@ return new Promise((resolve, reject)=>{
 }
 
 const submit = ()=>{
+    const oldTime = new Date();
     document.getElementById('progress').style.visibility="visible";
     document.getElementById('result').style.display="none";
     setTimeout(()=>{
@@ -151,7 +168,9 @@ const submit = ()=>{
       </table>`
     }
     document.getElementById('progress').style.visibility="hidden";
-    console.log(value)
+    const currentTime = new Date();
+    const diff = currentTime.getTime() - oldTime.getTime();
+    console.log("Time: ",diff,"value:", value)
     })
     .catch(()=>{
     document.getElementById('progress').style.visibility="hidden";

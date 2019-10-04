@@ -22,6 +22,26 @@ function calculate() {
     A = Number(document.getElementById('jugA').value);
     B = Number(document.getElementById('jugB').value);
     O = Number(document.getElementById('output').value);
+    var pastStates = [];
+
+    var checkPastState = function checkPastState(a, b) {
+      var obj = JSON.stringify({
+        a: a,
+        b: b
+      });
+      var status = pastStates.some(function (e) {
+        return e == obj;
+      });
+      return status;
+    };
+
+    var setPastState = function setPastState(a, b) {
+      pastStates.push(JSON.stringify({
+        a: a,
+        b: b
+      }));
+    };
+
     var cycles = Number(document.getElementById('cycles').value);
     console.log(A, B, O, cycles);
     var Q = [{
@@ -137,6 +157,12 @@ function calculate() {
       }
 
       if (newState) {
+        if (checkPastState(newState.a, newState.b)) {
+          continue;
+        } else {
+          setPastState(newState.a, newState.b);
+        }
+
         var trace = _toConsumableArray(newState.trace);
 
         Q.push(_objectSpread({}, newState, {
@@ -176,6 +202,7 @@ function calculate() {
 }
 
 var submit = function submit() {
+  var oldTime = new Date();
   document.getElementById('progress').style.visibility = "visible";
   document.getElementById('result').style.display = "none";
   setTimeout(function () {
@@ -191,7 +218,9 @@ var submit = function submit() {
       }
 
       document.getElementById('progress').style.visibility = "hidden";
-      console.log(value);
+      var currentTime = new Date();
+      var diff = currentTime.getTime() - oldTime.getTime();
+      console.log("Time: ", diff, "value:", value);
     })["catch"](function () {
       document.getElementById('progress').style.visibility = "hidden";
     });

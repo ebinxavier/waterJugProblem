@@ -35,7 +35,6 @@ return new Promise((resolve, reject)=>{
             // 3 = B=FILL
             // 4 = A=EMPTY
             // 5 = B=EMPTY
-            //test
           let traceElement='';
           switch(dir){
             case 0:
